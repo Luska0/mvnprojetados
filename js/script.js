@@ -179,7 +179,7 @@ if (CONFIG.imagens.residencial) {
   if (pr) pr.classList.replace("yellow", "photo-panel");
 }
 
-/* ---------- Vídeo do hero (toca uma vez, sem som, e para no último quadro) ----------
+/* ---------- Vídeo do hero (em loop, sem som) ----------
    Dois vídeos: 16:9 para computador e 9:16 para celular. Troca sozinho se a tela mudar. */
 (function () {
   const holder = document.querySelector('.scene[data-scene="hero"]');
@@ -202,7 +202,7 @@ if (CONFIG.imagens.residencial) {
       el = new Image(); el.src = cfg.poster; el.alt = "";
     } else {
       el = document.createElement("video");
-      el.muted = true; el.loop = false; el.autoplay = true; el.playsInline = true; el.preload = "auto";
+      el.muted = true; el.loop = true; el.autoplay = true; el.playsInline = true; el.preload = "auto";
       el.setAttribute("muted", ""); el.setAttribute("playsinline", ""); el.setAttribute("aria-hidden", "true");
       el.poster = cfg.poster;
       el.src = cfg.video;
